@@ -1,9 +1,9 @@
-from independent_solver import solve_sat
+from independent_solver import non_opposite, solve_sat
 
 class SatInstance:
     # a sat instance variable stores a sat problem in cnf
-    # it's represented as a list of clauses
-    # each clause is represented as a list of literals
+    # it's reapresented as a list of clauses
+    # each cluse is represented as a list of literals
     # a literal is a tuple containing a boolean to say whether its postive or negative, and an integer identifier
     # the identifiers are from 0 to num_variables-1 inclusively
     # this is offset by 1 compared to the dimacs format which uses 1 as its base identifier
@@ -71,6 +71,7 @@ class SatInstance:
             print(" ∨ ".join(literals))
 
 if __name__ == "__main__":
+    print(non_opposite([[1, 0], [0, 1], [-1, 1]]))
     si = SatInstance('15.cnf')
     si.display()
     solve_sat(si)
