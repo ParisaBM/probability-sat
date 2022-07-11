@@ -9,9 +9,9 @@ def non_opposite(vectors):
     zero_ub = [0]*len(vectors)
     box = [(-1, 1)]*len(vectors[0])+[(0, None)]
     negative_vectors = [[-x for x in v]+[1] for v in vectors]
-    result = linprog(c = objective, A_ub = negative_vectors, b_ub = zero_ub, bounds = box)
-    print(result)
-    result = result.x[:-1]
+    result = linprog(c = objective, A_ub = negative_vectors, b_ub = zero_ub, bounds = box).x
+    print(result[1])
+    result = result[:-1]
     result = torch.tensor(result)
     return result
 

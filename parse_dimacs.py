@@ -1,4 +1,5 @@
 from independent_solver import non_opposite, solve_sat
+from mixed_independent_solver import solved_mixed
 
 class SatInstance:
     # a sat instance variable stores a sat problem in cnf
@@ -74,4 +75,4 @@ if __name__ == "__main__":
     print(non_opposite([[1, 0], [0, 1], [-1, 1]]))
     si = SatInstance('15.cnf')
     si.display()
-    solve_sat(si)
+    solved_mixed(si)
